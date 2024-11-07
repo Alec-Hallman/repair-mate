@@ -10,8 +10,8 @@ This is our CP317 (Software Engineering) final projet code.
 ## Features
 | Feature       | Description                             |
 |---------------|-----------------------------------------|
-| **Fast**      | Runs at optimal speed                  |
-| **Reliable**  | Handles errors gracefully              |
+| **Renters create maintenance requests**      | Helping them reach their landlord effortlessly                  |
+| **Landlord can easily see issues, marked by priority**  | streamlining what issues need to be fixed              |
 
 ## Usage
 
