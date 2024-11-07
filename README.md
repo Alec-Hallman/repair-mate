@@ -6,6 +6,8 @@
 - [Contributors](#Contributors)
 - [How to code it](#Howtocode)
 
+## Tech Stack
+**Frontend**
 ## Introduction
 This is our CP317 (Software Engineering) final projet code.
 ## Features
