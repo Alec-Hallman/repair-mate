@@ -1,4 +1,4 @@
-##Table of Contents
+## Table of Contents
 - [Introduction](#introduction)
 - [Features](#features)
 - [Usage](#usage)
@@ -6,4 +6,4 @@
 - [How to code it](#howtocode)
 
 
-##Features
+## Features
