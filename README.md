@@ -44,6 +44,6 @@ After that, all code for the website should be in the src file. Here there are m
 |Model|This is our background data model. This way multiple components can access the same data and change their appearance based on it.|
 
 # The Wackiness of React  
-React uses "hooks" to re-render the website whenever some variable is changed. The main hooks we'll use are:
+React uses "hooks" to re-render the website whenever some variable is changed. The main hooks we'll use are:  
 |Hook | What it do|
 |useState | This hook is the main one to use if you need the website to reload when a variable is changed. This one will initiate an array with two things in it. The first thin is the actual variable and the second is a function which will change that variable and re-load the web page.|
