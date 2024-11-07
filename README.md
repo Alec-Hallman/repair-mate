@@ -11,7 +11,7 @@ This is our CP317 (Software Engineering) final project code.
 
 ## Tech Stack
 **Frontend** 💻
--React.js is a Javascript library for web development. This will be used for our front end (UI/user side).
+-React.js is a Javascript library for web development. This will be used for our front end (UI/user side).\n
 **backend**
 -Amazon Web Services (AWS) NoSQL DynamoDB Database, called through API Gateway and returns data through Lambda.
 
