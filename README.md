@@ -38,4 +38,6 @@ npm start (this should automatically open up your default web browser if it does
 After that, all code for the website should be in the src file. Here there are multiple other folders.
 | Folders       | Description                             |
 |---------------|-----------------------------------------|
-|Components|This is where all the React Components are stored. These are Javascript files. Think of every component as a Class in Java (overall think Object Oriented Design). These files are self-contained and have all the methods (functions) and variables they need inside of them to keep the main app code looking neat and tidy.|
+|Components|This is where all the React Components are stored. These are Javascript files. Think of every component as a Class in Java (overall think Object Oriented Design). These files are self-contained and have all the methods (functions) and variables they need inside of them to keep the main app code looking neat and tidy.|  
+|Styles|This folder contains all CSS styling for their respective components. I recommend making a style file for each component but it's not required. These are .css files and contain style classes which are used in the Javascript components to make everything look pretty|  
+|Model|This is our background data model. This way multiple components can access the same data and change their appearance based on it.|
