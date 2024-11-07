@@ -1,9 +1,9 @@
 ## Table of Contents
-- [Introduction](#introduction)
-- [Features](#features)
-- [Usage](#usage)
-- [Contributors](#contributors)
-- [How to code it](#howtocode)
+- [Introduction](#Introduction)
+- [Features](#Features)
+- [Usage](#Usage)
+- [Contributors](#Contributors)
+- [How to code it](#Howtocode)
 
 ## Introduction
 
