@@ -49,3 +49,7 @@ React uses "hooks" to re-render the website whenever some variable is changed. T
 |---------------|-----------------------------------------|
 |useState | This hook is the main one to use if you need the website to reload when a variable is changed. This one will initiate an array with two things in it. The first thin is the actual variable and the second is a function which will change that variable and re-load the web page. |
 |use context | This is the hook that will get info from our data models so you will set a variable to be equal to use context("Name of model")|  
+
+
+
+Besides that, if you have any questions I would highly recommend using chatGPT, don't copy-paste from it but for learning how this stuff works it is extremely helpful. Or just send me a message.
