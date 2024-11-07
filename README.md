@@ -29,8 +29,13 @@ This is our CP317 (Software Engineering) final project code.
 ## Contributors
 
 ## How to code it
-- Doownload the repo  
+- Download the repo  
 - In Visual Studio Code (ideal) open up a terminal and travel into the actual project file.
 **Typically:** cd repair-mate
 - After that you can launch the web server to see what the website looks like. This is done with this command
-npm start (this should automatically open up your default web browser if it doesn't this should be the url for the website http://localhost:3000/)  
+npm start (this should automatically open up your default web browser if it doesn't this should be the URL for the website http://localhost:3000/)
+
+After that, all code for the website should be in the src file. Here there are multiple other folders.
+| Folders       | Description                             |
+|---------------|-----------------------------------------|
+|Components|This is where all the React Components are stored. These are Javascript files. Think of every component as a Class in Java (overall think Object Oriented Design). These files are self-contained and have all the methods (functions) and variables they need inside of them to keep the main app code looking neat and tidy.|
