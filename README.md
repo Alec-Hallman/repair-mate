@@ -39,11 +39,12 @@ After that, all code for the website should be in the src file. Here there are m
 
 | Folders       | Description                             |
 |---------------|-----------------------------------------|
-|Components|This is where all the React Components are stored. These are Javascript files. Think of every component as a Class in Java (overall think Object Oriented Design). These files are self-contained and have all the methods (functions) and variables they need inside of them to keep the main app code looking neat and tidy.|  
-|Styles|This folder contains all CSS styling for their respective components. I recommend making a style file for each component but it's not required. These are .css files and contain style classes which are used in the Javascript components to make everything look pretty|  
+|Components | This is where all the React Components are stored. These are Javascript files. Think of every component as a Class in Java (overall think Object Oriented Design). These files are self-contained and have all the methods (functions) and variables they need inside of them to keep the main app code looking neat and tidy. |  
+| Styles |This folder contains all CSS styling for their respective components. I recommend making a style file for each component but it's not required. These are .css files and contain style classes which are used in the Javascript components to make everything look pretty|  
 |Model|This is our background data model. This way multiple components can access the same data and change their appearance based on it.|
 
 # The Wackiness of React  
 React uses "hooks" to re-render the website whenever some variable is changed. The main hooks we'll use are:  
-|Hook | What it do|
-|useState | This hook is the main one to use if you need the website to reload when a variable is changed. This one will initiate an array with two things in it. The first thin is the actual variable and the second is a function which will change that variable and re-load the web page.|
+| Hook       | What it do                            |
+|---------------|-----------------------------------------|
+|useState | This hook is the main one to use if you need the website to reload when a variable is changed. This one will initiate an array with two things in it. The first thin is the actual variable and the second is a function which will change that variable and re-load the web page. |
