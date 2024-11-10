@@ -3,8 +3,7 @@
 - [Tech Stack](#TeachStack)
 - [Features](#Features)
 - [Usage](#Usage)
-- [Contributors](#Contributors)
-- [How to code it](#Howtocode)
+- [How to code it](#Howto)
 
 ## Introduction
 This is our CP317 (Software Engineering) final project code.
@@ -26,9 +25,7 @@ This is our CP317 (Software Engineering) final project code.
 -Renters create maintenance requests and assign a priority based on the severity of the issue
 -Landlords get to see a streamlined list of all property issues which require attention ordered from most to least urgent. This way landlords can easily see what issues need to be dealt with a
 
-## Contributors
-
-## How to code it
+## Howto
 - Download the repo  
 - In Visual Studio Code (ideal) open up a terminal and travel into the actual project file.
 **Typically:** cd repair-mate
