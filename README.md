@@ -13,6 +13,7 @@ This is our CP317 (Software Engineering) final project code.
   -React.js is a Javascript library for web development. This will be used for our front end (UI/user side).  
 **backend** 📑  
   -Amazon Web Services (AWS) NoSQL DynamoDB Database, called through API Gateway and returns data through Lambda.
+  -Express.js a backend framework. Will handle HTTP requests and responsed, manage data, and implement logic for the server-side of the application
 
 
 ## Features
