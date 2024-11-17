@@ -1,23 +1,18 @@
-import logo from "./logo.svg";
+import "./Styles/homeStyles.css";
 import "./App.css";
+import HomeButton from "./Components/Elements/HomeButton";
+import HeaderText from "./Components/Elements/HeaderText";
+import SigninPage from "./Components/Pages/SigninPage";
+import UserButton from "./Components/Elements/Button";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <div className="header-container">
+        <HomeButton></HomeButton>
+      </div>
+      <HeaderText text={"this is a header Text"} large={true}></HeaderText>
+      <SigninPage></SigninPage>
     </div>
   );
 }
