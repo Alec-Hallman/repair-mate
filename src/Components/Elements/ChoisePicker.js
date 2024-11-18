@@ -1,8 +1,7 @@
 import { useState } from "react";
 import "../../Styles/CreateAccount.css";
 
-const ChoicePicker = ({ items }) => {
-  const [selected, setSelected] = useState(-1);
+const ChoicePicker = ({ items, setSelected, selected }) => {
   const changeSelection = (index) => {
     setSelected(index);
   };
@@ -16,7 +15,7 @@ const ChoicePicker = ({ items }) => {
               changeSelection(index);
             }}
           >
-            {selected === index ? (
+            {selected != null && selected === index ? (
               <p className="normalText">✅</p>
             ) : (
               <p className="normalText">0</p>

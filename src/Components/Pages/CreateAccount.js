@@ -5,6 +5,7 @@ import InputField from "../Elements/InputField";
 
 const CreateAccount = () => {
   const options = ["Resident", "Landlord/Property Management"];
+  const [selected, setSelected] = useState(-1);
   var [pageState, setPageState] = useState(-1);
   function PageState() {
     if (pageState === -1) return <>{ResorLord()}</>;
@@ -13,9 +14,20 @@ const CreateAccount = () => {
   }
   const nextPageState = (forward) => {
     if (forward) {
-      pageState += 1;
+      if (pageState === 0 || pageState === 1) {
+        console.log("done has been pressed");
+      } else if (pageState === -1 && selected === 1) {
+        pageState += 2;
+        console.log("added 2 to page state");
+      } else {
+        pageState += 1;
+      }
     } else {
-      pageState -= 1;
+      if (pageState === 1 && selected === 1) {
+        pageState -= 2;
+      } else {
+        pageState -= 1;
+      }
     }
     setPageState(pageState);
   };
@@ -50,7 +62,13 @@ const CreateAccount = () => {
   function ResorLord() {
     return (
       <>
-        <ChoicePicker items={options}></ChoicePicker>
+        <ChoicePicker
+          items={options}
+          setSelected={(index) => {
+            setSelected(index);
+          }}
+          selected={selected}
+        ></ChoicePicker>
         {/** Here will be the enter email/password */}
       </>
     );
@@ -74,7 +92,7 @@ const CreateAccount = () => {
         )}
         <UserButton
           green={true}
-          text={"Next"}
+          text={pageState < 0 ? "Next" : "Done"}
           onClick={() => {
             nextPageState(true);
           }}
