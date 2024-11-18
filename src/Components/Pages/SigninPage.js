@@ -4,25 +4,38 @@ import "../../Styles/SignIn.css";
 import UserButton from "../Elements/Button";
 import HeaderText from "../Elements/HeaderText";
 import { useState } from "react";
+import CreateAccount from "./CreateAccount";
 const SigninPage = () => {
-  const [signIn, setSignInState] = useState(-1);
+  const [signIn, setSignInState] = useState(-1); //By defualt -1, 0 = create account, 1 = sign in
   const changeDisplay = (pageState) => {
     setSignInState(pageState);
     console.log("page state changed");
   };
-  return (
-    <>
-      <HeaderText text={"Please sign in or create an account"}></HeaderText>
-      <div className="CC_SI-container">
+  function signInOrCreateAccount() {
+    return (
+      <>
+        <HeaderText text={"Please sign in or create an account"}></HeaderText>
+
         <UserButton
           text={"Create Account"}
           green={true}
           onClick={() => {
-            changeDisplay(0);
+            changeDisplay(0); //Change the display to the create account page
           }}
         ></UserButton>
         <UserButton text={"Sign In"} green={true}></UserButton>
-      </div>
+      </>
+    );
+  }
+  function renderPage() {
+    if (signIn === -1) return <>{signInOrCreateAccount()}</>;
+    if (signIn === 0) return <CreateAccount />;
+    if (signIn === 1) return <></>;
+  }
+
+  return (
+    <>
+      <>{renderPage()}</>
     </>
   );
 };

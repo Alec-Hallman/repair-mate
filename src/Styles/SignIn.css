@@ -1,8 +1,6 @@
-.CC_SI-container {
+.center-container {
   display: flex;
   flex-direction: column;
-  gap: 5vh;
   justify-content: center;
   align-items: center;
-  height: 20vh;
 }
