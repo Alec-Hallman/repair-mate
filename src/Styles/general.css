@@ -5,33 +5,41 @@
   text-align: center;
   margin: 0;
 }
-
-.greenButton,
-.redButton {
-  border-radius: 40px;
-  color: white;
-  font-weight: 500;
-  font-size: large;
-  border: none;
-  min-width: 8vw;
-  min-height: 4vh;
-}
-.greenButton:hover {
-  background-color: #abd1b589;
-}
-.redButton:hover {
-  background-color: #b34c4c8b;
-}
-
-.greenButton {
-  background-color: #abd1b5;
-}
-.redButton {
-  background-color: #b34c4c;
-}
 .l_headerText {
   font-size: 35px;
 }
 .s_headerText {
   font-size: 25px;
+}
+.bottom-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+}
+.normalText,
+.noBoldText {
+  font-size: 120%;
+  color: white;
+}
+.normalText {
+  font-weight: 500;
+}
+.noBoldText,
+.smallText {
+  font-weight: 200;
+}
+.smallText {
+  font-size: 80%;
+  color: white;
+}
+
+.center-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
 }

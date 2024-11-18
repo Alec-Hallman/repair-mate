@@ -1,0 +1,24 @@
+.greenButton,
+.redButton {
+  border-radius: 40px;
+  color: white;
+  font-weight: 500;
+  font-size: large;
+  border: none;
+  min-width: 15vw;
+  min-height: 4vh;
+  margin: 3vh;
+}
+.greenButton:hover {
+  background-color: #abd1b589;
+}
+.redButton:hover {
+  background-color: #b34c4c8b;
+}
+
+.greenButton {
+  background-color: #abd1b5;
+}
+.redButton {
+  background-color: #b34c4c;
+}
