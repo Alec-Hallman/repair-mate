@@ -2,12 +2,13 @@
 .redButton {
   border-radius: 40px;
   color: white;
-  font-weight: 500;
-  font-size: large;
+  font-weight: 700;
+  font-size: larger;
   border: none;
-  min-width: 15vw;
+  min-width: 25vw;
   min-height: 4vh;
   margin: 3vh;
+  margin-top: none;
 }
 .greenButton:hover {
   background-color: #abd1b589;

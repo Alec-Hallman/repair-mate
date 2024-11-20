@@ -1,15 +1,26 @@
 .l_headerText,
-.s_headerText {
+.s_headerText,
+.bl_headerText,
+.bs_headerText {
   color: white;
   font-weight: 650;
   text-align: center;
   margin: 0;
 }
-.l_headerText {
+.l_headerText,
+.bl_headerText {
   font-size: 35px;
 }
-.s_headerText {
+.s_headerText,
+.bs_headerText {
   font-size: 25px;
+}
+
+.bs_headerText,
+.bl_headerText {
+  color: #208aae;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 .bottom-container {
   position: fixed;
@@ -42,4 +53,8 @@
   justify-content: center;
   align-items: center;
   height: 50vh;
+}
+.header-container {
+  display: flex;
+  justify-content: center;
 }
