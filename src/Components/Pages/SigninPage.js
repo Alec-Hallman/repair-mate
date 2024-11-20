@@ -14,7 +14,7 @@ const SigninPage = () => {
   function signInOrCreateAccount() {
     return (
       <>
-        <HeaderText text={"Please sign in or create an account"}></HeaderText>
+        <HeaderText w1Text={"Please sign in or create an account"}></HeaderText>
 
         <UserButton
           text={"Create Account"}
@@ -30,7 +30,7 @@ const SigninPage = () => {
   function renderPage() {
     if (signIn === -1) return <>{signInOrCreateAccount()}</>;
     if (signIn === 0) return <CreateAccount />;
-    if (signIn === 1) return <></>;
+    if (signIn === 1) return <></>; //Sign in page will go here
   }
 
   return (

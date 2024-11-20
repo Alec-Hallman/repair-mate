@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import UserButton from "../Elements/Button";
 import ChoicePicker from "../Elements/ChoisePicker";
 import InputField from "../Elements/InputField";
+import { appModel } from "../../Models/appModel";
 
 const CreateAccount = () => {
+  const { setResident, setSignedIn, signedIn } = useContext(appModel);
   const options = ["Resident", "Landlord/Property Management"];
   const [selected, setSelected] = useState(-1);
   var [pageState, setPageState] = useState(-1);
@@ -15,10 +17,13 @@ const CreateAccount = () => {
   const nextPageState = (forward) => {
     if (forward) {
       if (pageState === 0 || pageState === 1) {
-        console.log("done has been pressed");
+        setSignedIn(true);
+        console.log("done has been pressed, sing in changed to: ", signedIn);
       } else if (pageState === -1 && selected === 1) {
-        pageState += 2;
-        console.log("added 2 to page state");
+        //Land lord selected when page changed
+        pageState += 2; //change page to the landlord create account page
+        setResident(false); //set that in the app model
+        //console.log("added 2 to page state");
       } else {
         pageState += 1;
       }
