@@ -1,0 +1,32 @@
+.backdrop-container {
+  background-color: #8b575c;
+  min-width: 85%;
+  margin-top: -10px;
+  color: white;
+  font-weight: 600;
+  font-size: large;
+  text-align: center;
+  list-style: none;
+}
+.dropdown-item:hover,
+.dropdown-button:hover {
+  cursor: pointer;
+}
+.dropdown-item {
+  margin: 10px;
+}
+.dropdown-button {
+  min-height: 3vh;
+  background-color: #8b575c;
+  border: none;
+  min-width: 100%;
+  text-align: center;
+  padding-left: 40px;
+  font-weight: 600;
+  font-size: large;
+  color: white;
+  margin: 0px;
+}
+.dropdown-container {
+  width: 60vw;
+}
