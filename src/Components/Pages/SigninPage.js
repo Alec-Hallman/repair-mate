@@ -5,6 +5,7 @@ import UserButton from "../Elements/Button";
 import HeaderText from "../Elements/HeaderText";
 import { useState } from "react";
 import CreateAccount from "./CreateAccount";
+import SignIn from "./SignIn";
 const SigninPage = () => {
   const [signIn, setSignInState] = useState(-1); //By defualt -1, 0 = create account, 1 = sign in
   const changeDisplay = (pageState) => {
@@ -23,14 +24,17 @@ const SigninPage = () => {
             changeDisplay(0); //Change the display to the create account page
           }}
         ></UserButton>
-        <UserButton text={"Sign In"} green={true}></UserButton>
+        <UserButton text={"Sign In"} green={true}
+        onClick={()=>{
+          changeDisplay(1);
+        }}></UserButton>
       </>
     );
   }
   function renderPage() {
     if (signIn === -1) return <>{signInOrCreateAccount()}</>;
     if (signIn === 0) return <CreateAccount />;
-    if (signIn === 1) return <></>; //Sign in page will go here
+    if (signIn === 1) return <SignIn/>; //Sign in page will go here
   }
 
   return (
