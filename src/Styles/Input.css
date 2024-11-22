@@ -1,3 +1,7 @@
 .input {
   min-width: 50vw;
 }
+.large-input {
+  min-height: 20vh;
+  min-width: 40vh;
+}

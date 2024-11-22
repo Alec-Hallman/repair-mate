@@ -30,6 +30,12 @@
   text-align: center;
   padding: 10px;
 }
+.top-container {
+  position: fixed;
+  top: 22vh;
+  left: 0;
+  width: 100%;
+}
 .normalText,
 .noBoldText {
   font-size: 120%;
@@ -41,6 +47,7 @@
 .noBoldText,
 .smallText {
   font-weight: 200;
+  margin: 0px;
 }
 .smallText {
   font-size: 80%;

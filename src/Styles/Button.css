@@ -1,20 +1,33 @@
 .greenButton,
-.redButton {
+.redButton,
+.largeButton {
   border-radius: 40px;
   color: white;
   font-weight: 700;
   font-size: larger;
+  margin: 3vh;
+  margin-top: 0px;
   border: none;
+  cursor: pointer;
+}
+.largeButton {
+  min-width: 25vw;
+  min-height: 10vh;
+  background-color: #70578b;
+}
+.greenButton,
+.redButton {
   min-width: 25vw;
   min-height: 4vh;
-  margin: 3vh;
-  margin-top: none;
 }
 .greenButton:hover {
   background-color: #abd1b589;
 }
 .redButton:hover {
   background-color: #b34c4c8b;
+}
+.largeButton:hover {
+  background-color: #63497e;
 }
 
 .greenButton {

@@ -2,6 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { appModel } from "../../Models/appModel";
 import HeaderText from "../Elements/HeaderText";
 import UserButton from "../Elements/Button";
+import CreateClaims from "./CreateClaims";
+import ClaimModel from "../../Models/CreateClaimModel";
 
 const PAGE_STATES = {
   INITIAL: -1,
@@ -10,18 +12,22 @@ const PAGE_STATES = {
 };
 
 const ResidentHome = () => {
-  const { residentForename, setHeaderText, bText, w2Text } =
-    useContext(appModel);
-  const [pageState, setPageState] = useState(PAGE_STATES.INITIAL);
-
+  const {
+    residentForename,
+    setHeaderText,
+    bText,
+    w2Text,
+    residentPageState,
+    setResidentPage,
+  } = useContext(appModel);
   useEffect(() => {
-    if (pageState === PAGE_STATES.INITIAL) {
+    if (residentPageState === PAGE_STATES.INITIAL) {
       setHeaderText(["Hello", "Alec", ", welcome back!"]);
     }
   }, [bText, w2Text, setHeaderText]);
 
   function showPage() {
-    if (pageState === -1) {
+    if (residentPageState === -1) {
       return (
         <>
           <HeaderText
@@ -32,7 +38,7 @@ const ResidentHome = () => {
             green={true}
             text={"Create a claim"}
             onClick={() => {
-              setPageState(PAGE_STATES.CREATECLAIM);
+              setResidentPage(PAGE_STATES.CREATECLAIM);
             }}
           ></UserButton>
           <HeaderText
@@ -43,23 +49,19 @@ const ResidentHome = () => {
             green={true}
             text={"See claims"}
             onClick={() => {
-              setPageState(PAGE_STATES.SEECLAIMS);
+              setResidentPage(PAGE_STATES.SEECLAIMS);
             }}
           ></UserButton>
         </>
       );
-    } else if (pageState === PAGE_STATES.CREATECLAIM) {
+    } else if (residentPageState === PAGE_STATES.CREATECLAIM) {
       return (
-        <>
-          <p>Create a claim page</p>
-        </>
+        <ClaimModel>
+          <CreateClaims></CreateClaims>
+        </ClaimModel>
       );
-    } else if (pageState === PAGE_STATES.SEECLAIMS) {
-      return (
-        <>
-          <p>See claims</p>
-        </>
-      );
+    } else if (residentPageState === PAGE_STATES.SEECLAIMS) {
+      return <>{/**See claims page will go here */}</>;
     }
   }
   return <>{showPage()}</>;

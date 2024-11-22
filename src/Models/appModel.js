@@ -8,6 +8,8 @@ const InfoManager = ({ children }) => {
   const [resident, setResident] = useState(true);
   const [signedIn, setSignedIn] = useState(false);
   const [userForename, setForename] = useState("Alec");
+  const [selectedProblem, setProblem] = useState("");
+  const [residentPageState, setResidentPage] = useState(-1);
   const [[w1Text, bText, w2Text], setHeaderText] = useState([
     "Hey",
     "...",
@@ -20,6 +22,7 @@ const InfoManager = ({ children }) => {
   return (
     <appModel.Provider
       value={{
+        selectedProblem,
         w1Text,
         bText,
         w2Text,
@@ -27,6 +30,9 @@ const InfoManager = ({ children }) => {
         accountId,
         resident,
         signedIn,
+        residentPageState,
+        setResidentPage,
+        setProblem,
         setPage,
         setId,
         setResident,
