@@ -21,6 +21,16 @@ const SignIn = () => {
             
             </UserButton>
             </>
+
+            <>
+            <UserButton
+            text = "Go Back"
+            green = {false}
+            onClick = {return(SignInPage)}
+            >
+                
+            </UserButton>
+            </>
         );
     }
     function renderPage(){
