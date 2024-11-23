@@ -24,17 +24,20 @@ const SigninPage = () => {
             changeDisplay(0); //Change the display to the create account page
           }}
         ></UserButton>
-        <UserButton text={"Sign In"} green={true}
-        onClick={()=>{
-          changeDisplay(1);
-        }}></UserButton>
+        <UserButton
+          text={"Sign In"}
+          green={true}
+          onClick={() => {
+            changeDisplay(1);
+          }}
+        ></UserButton>
       </>
     );
   }
   function renderPage() {
     if (signIn === -1) return <>{signInOrCreateAccount()}</>;
-    if (signIn === 0) return <CreateAccount />;
-    if (signIn === 1) return <SignIn/>; //Sign in page will go here
+    if (signIn === 0) return <CreateAccount changeDisplay={changeDisplay} />;
+    if (signIn === 1) return <SignIn changeDisplay={changeDisplay} />; //Sign in page will go here
   }
 
   return (

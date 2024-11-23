@@ -4,7 +4,7 @@ import ChoicePicker from "../Elements/ChoisePicker";
 import InputField from "../Elements/InputField";
 import { appModel } from "../../Models/appModel";
 
-const CreateAccount = () => {
+const CreateAccount = ({ changeDisplay }) => {
   const { setResident, setSignedIn, signedIn } = useContext(appModel);
   const options = ["Resident", "Landlord/Property Management"];
   const [selected, setSelected] = useState(-1);
@@ -82,19 +82,19 @@ const CreateAccount = () => {
     <>
       {PageState()}
       <div className="bottom-container">
-        {pageState > -1 ? (
-          <>
-            <UserButton
-              green={false}
-              text={"Back"}
-              onClick={() => {
+        <>
+          <UserButton
+            green={false}
+            text={"Back"}
+            onClick={() => {
+              if (pageState === -1) {
+                changeDisplay(-1);
+              } else {
                 nextPageState(false);
-              }}
-            ></UserButton>
-          </>
-        ) : (
-          <></>
-        )}
+              }
+            }}
+          ></UserButton>
+        </>
         <UserButton
           green={true}
           text={pageState < 0 ? "Next" : "Done"}

@@ -1,51 +1,47 @@
-
 import LoginField from "../Elements/LoginField";
 import "../../Styles/Input.css";
 import UserButton from "../Elements/Button";
 import SigninPage from "./SigninPage";
-const SignIn = () => {
-    
-    let pick = 0
-    function click(){
-        pick = 1;
-    }
-    function back(){
-        pick = -1;
-        console.log(pick)
-    }
+import { useContext } from "react";
+import { appModel } from "../../Models/appModel";
 
-    function sign_in(){
-        return(
-            <>
-            <LoginField></LoginField>
-            <UserButton
-            text = "Done"
-            green = {true}
-            onClick={click}
-            ></UserButton>
-
-            <UserButton
-            text = "Go Back"
-            green = {false}
-            onClick = {back}
-            ></UserButton>
-
-            
-
-            
-            </>
-        );
+const SignIn = ({ changeDisplay }) => {
+  const { signedIn, setSignedIn } = useContext(appModel);
+  const click = (forward) => {
+    if (forward) {
+      setSignedIn(true);
+    } else {
+      changeDisplay(-1);
     }
-    function renderPage(){
-        if (pick === 0) return <>{sign_in()}</>;
-        if (pick === 1) return<></> /*next page*/;
-        if (pick === -1) return <SigninPage/>;
-            
-    }
+  };
+
+  function sign_in() {
     return (
-        <>
-          <>{renderPage()}</>
-        </>
-      );
+      <>
+        <LoginField></LoginField>
+        <div className="bottom-container">
+          <UserButton
+            text="Done"
+            green={true}
+            onClick={() => {
+              click(true);
+            }}
+          ></UserButton>
+          <UserButton
+            text="Go Back"
+            green={false}
+            onClick={() => {
+              click(false);
+            }}
+          ></UserButton>
+        </div>
+      </>
+    );
+  }
+  return (
+    <>
+      <>{sign_in()}</>
+    </>
+  );
 };
 export default SignIn;
