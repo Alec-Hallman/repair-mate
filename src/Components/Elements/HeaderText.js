@@ -1,5 +1,5 @@
 import "../../Styles/homeStyles.css";
-const HeaderText = ({ w1Text, bText, w2Text, large, style}) => {
+const HeaderText = ({ w1Text, bText, w2Text, large, style }) => {
   return (
     <>
       <div className="header-container" style={style}>

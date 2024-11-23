@@ -1,26 +1,24 @@
-.PurpleBox-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-    gap: -40px;
-    
-    
+.PurpleBox-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: -40px;
+  width: min(90vw, 500px);
+  max-height: 1000px;
+  min-height: 70vh;
+  margin-top: -100px;
 }
 
-.PurpleBox{
-    width: 100%;
-    max-width: 650px;
-    height: 800px;
-    background-color: rgb(105, 58, 105);
-    border-radius: 50px;
-    position: relative;
-    top: 100px;
-    outline: auto;
-    margin-top: 0;
+.PurpleBox {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  background-color: #70578b;
+  border-radius: 50px;
+  position: relative;
+  top: 100px;
+  margin-top: 50px;
 }
 
-.header-container{
-    
+.header-container {
 }
-

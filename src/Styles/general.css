@@ -39,6 +39,7 @@
 .normalText,
 .noBoldText {
   font-size: 120%;
+  user-select: none;
   color: white;
 }
 .normalText {
@@ -46,6 +47,7 @@
 }
 .noBoldText,
 .smallText {
+  user-select: none;
   font-weight: 200;
   margin: 0px;
 }
@@ -62,6 +64,11 @@
   height: 55vh;
 }
 .header-container {
+  user-select: none;
+  margin: 0px;
   display: flex;
   justify-content: center;
+  align-content: center;
+  max-height: 60px;
+  width: 100vw;
 }

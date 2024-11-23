@@ -3,6 +3,7 @@ import UserButton from "../Elements/Button";
 import ChoicePicker from "../Elements/ChoisePicker";
 import InputField from "../Elements/InputField";
 import { appModel } from "../../Models/appModel";
+import LoginField from "../Elements/LoginField";
 
 const CreateAccount = ({ changeDisplay }) => {
   const { setResident, setSignedIn, signedIn } = useContext(appModel);
@@ -18,7 +19,6 @@ const CreateAccount = ({ changeDisplay }) => {
     if (forward) {
       if (pageState === 0 || pageState === 1) {
         setSignedIn(true);
-        console.log("done has been pressed, sing in changed to: ", signedIn);
       } else if (pageState === -1 && selected === 1) {
         //Land lord selected when page changed
         pageState += 2; //change page to the landlord create account page
@@ -67,13 +67,16 @@ const CreateAccount = ({ changeDisplay }) => {
   function ResorLord() {
     return (
       <>
-        <ChoicePicker
-          items={options}
-          setSelected={(index) => {
-            setSelected(index);
-          }}
-          selected={selected}
-        ></ChoicePicker>
+        <div>
+          <ChoicePicker
+            items={options}
+            setSelected={(index) => {
+              setSelected(index);
+            }}
+            selected={selected}
+          ></ChoicePicker>
+          <LoginField></LoginField>
+        </div>
         {/** Here will be the enter email/password */}
       </>
     );

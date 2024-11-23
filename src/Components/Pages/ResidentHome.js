@@ -4,6 +4,7 @@ import HeaderText from "../Elements/HeaderText";
 import UserButton from "../Elements/Button";
 import CreateClaims from "./CreateClaims";
 import ClaimModel from "../../Models/CreateClaimModel";
+import SeeClaims from "./SeeClaims";
 
 const PAGE_STATES = {
   INITIAL: -1,
@@ -61,7 +62,11 @@ const ResidentHome = () => {
         </ClaimModel>
       );
     } else if (residentPageState === PAGE_STATES.SEECLAIMS) {
-      return <>{/**See claims page will go here */}</>;
+      return (
+        <>
+          <SeeClaims></SeeClaims>
+        </>
+      );
     }
   }
   return <>{showPage()}</>;

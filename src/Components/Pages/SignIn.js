@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { appModel } from "../../Models/appModel";
 
 const SignIn = ({ changeDisplay }) => {
-  const { signedIn, setSignedIn } = useContext(appModel);
+  const { setSignedIn } = useContext(appModel);
   const click = (forward) => {
     if (forward) {
       setSignedIn(true);
@@ -17,16 +17,9 @@ const SignIn = ({ changeDisplay }) => {
 
   function sign_in() {
     return (
-      <>
+      <div>
         <LoginField></LoginField>
         <div className="bottom-container">
-          <UserButton
-            text="Done"
-            green={true}
-            onClick={() => {
-              click(true);
-            }}
-          ></UserButton>
           <UserButton
             text="Go Back"
             green={false}
@@ -34,14 +27,17 @@ const SignIn = ({ changeDisplay }) => {
               click(false);
             }}
           ></UserButton>
+          <UserButton
+            text="Done"
+            green={true}
+            onClick={() => {
+              click(true);
+            }}
+          ></UserButton>
         </div>
-      </>
+      </div>
     );
   }
-  return (
-    <>
-      <>{sign_in()}</>
-    </>
-  );
+  return <>{sign_in()}</>;
 };
 export default SignIn;

@@ -1,5 +1,6 @@
 .input {
-  min-width: 50vw;
+  margin: 0px;
+  width: min(90vw, 500px);
 }
 .large-input {
   min-height: 20vh;
