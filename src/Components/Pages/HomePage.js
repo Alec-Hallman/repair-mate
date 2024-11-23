@@ -4,6 +4,7 @@ import HeaderText from "../Elements/HeaderText";
 import HomeButton from "../Elements/HomeButton";
 import SigninPage from "./SigninPage";
 import ResidentHome from "./ResidentHome.js";
+import LandlordHome from "./LandlordHome.js";
 
 const Homepage = () => {
   const { signedIn, resident, w1Text, w2Text, bText } = useContext(appModel);
@@ -15,7 +16,7 @@ const Homepage = () => {
         //Show resident page
       } else {
         //show landlord page
-        return <></>;
+        return <LandlordHome/>;
       }
     } else {
       //user is not signed in Show sign in information

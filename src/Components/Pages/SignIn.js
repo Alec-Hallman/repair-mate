@@ -2,11 +2,16 @@
 import LoginField from "../Elements/LoginField";
 import "../../Styles/Input.css";
 import UserButton from "../Elements/Button";
+import SigninPage from "./SigninPage";
 const SignIn = () => {
     
-    let pick = 1
+    let pick = 0
     function click(){
-        pick = 0;
+        pick = 1;
+    }
+    function back(){
+        pick = -1;
+        console.log(pick)
     }
 
     function sign_in(){
@@ -17,15 +22,25 @@ const SignIn = () => {
             text = "Done"
             green = {true}
             onClick={click}
-            >
+            ></UserButton>
+
+            <UserButton
+            text = "Go Back"
+            green = {false}
+            onClick = {back}
+            ></UserButton>
+
             
-            </UserButton>
+
+            
             </>
         );
     }
     function renderPage(){
-        if (pick === 1) return <>{sign_in()}</>;
-        if (pick === 0) return<></> /*next page*/
+        if (pick === 0) return <>{sign_in()}</>;
+        if (pick === 1) return<></> /*next page*/;
+        if (pick === -1) return <SigninPage/>;
+            
     }
     return (
         <>
