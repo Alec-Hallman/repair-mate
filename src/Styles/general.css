@@ -19,7 +19,7 @@
 .bs_headerText,
 .bl_headerText {
   color: #208aae;
-  margin-left: 5px;
+  margin-left: 10px;
   margin-right: 5px;
 }
 .bottom-container {
@@ -52,7 +52,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 50vh;
+  height: 55vh;
 }
 .header-container {
   display: flex;
