@@ -11,15 +11,15 @@ const ClaimModel = ({ children }) => {
   ];
   const inUnit = ["Plumbing", "Internet", "Climate Control", "Power", "Other"];
   const [progress, setProgress] = useState([
-    "0",
+    "☐",
     "--",
-    "0",
+    "☐",
     "--",
-    "0",
+    "☐",
     "--",
-    "0",
+    "☐",
     "--",
-    "0",
+    "☐",
     "-->Done!",
   ]);
   const maintenanceOptions = [
@@ -76,7 +76,7 @@ const ClaimModel = ({ children }) => {
       // go back
       setCounter((stepCounter -= 2)); // change the page state number
       const updatedProgress = [...progress]; //update the step string
-      updatedProgress[stepCounter] = "0";
+      updatedProgress[stepCounter] = "☐";
       setProgress(updatedProgress);
     }
     setBText(bTextOptions[stepCounter / 2]);
