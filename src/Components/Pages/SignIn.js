@@ -6,10 +6,10 @@ import { useContext } from "react";
 import { appModel } from "../../Models/appModel";
 
 const SignIn = ({ changeDisplay }) => {
-  const { setSignedIn } = useContext(appModel);
+  const { setSignedIn, getUser } = useContext(appModel);
   const click = (forward) => {
     if (forward) {
-      setSignedIn(true);
+      getUser();
     } else {
       changeDisplay(-1);
     }

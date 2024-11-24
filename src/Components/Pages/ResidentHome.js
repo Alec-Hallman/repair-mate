@@ -14,7 +14,7 @@ const PAGE_STATES = {
 
 const ResidentHome = () => {
   const {
-    residentForename,
+    userForename,
     setHeaderText,
     bText,
     w2Text,
@@ -23,7 +23,7 @@ const ResidentHome = () => {
   } = useContext(appModel);
   useEffect(() => {
     if (residentPageState === PAGE_STATES.INITIAL) {
-      setHeaderText(["Hello", "Alec", ", welcome back!"]);
+      setHeaderText(["Hello", userForename, ", welcome back!"]);
     }
   }, [bText, w2Text, setHeaderText]);
 
