@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import UserButton from "../Elements/Button";
 import ChoicePicker from "../Elements/ChoisePicker";
 import InputField from "../Elements/InputField";
@@ -6,7 +6,14 @@ import { appModel } from "../../Models/appModel";
 import LoginField from "../Elements/LoginField";
 
 const CreateAccount = ({ changeDisplay }) => {
-  const { setResident, setSignedIn, signedIn } = useContext(appModel);
+  const {
+    setResidentStatus,
+    setSignedIn,
+    postAccount,
+    setPhoneNumber,
+    setUnit,
+    setForename,
+  } = useContext(appModel);
   const options = ["Resident", "Landlord/Property Management"];
   const [selected, setSelected] = useState(-1);
   var [pageState, setPageState] = useState(-1);
@@ -19,13 +26,15 @@ const CreateAccount = ({ changeDisplay }) => {
     if (forward) {
       if (pageState === 0 || pageState === 1) {
         setSignedIn(true);
+        postAccount();
       } else if (pageState === -1 && selected === 1) {
         //Land lord selected when page changed
         pageState += 2; //change page to the landlord create account page
-        setResident(false); //set that in the app model
+        setResidentStatus("landlord"); //set that in the app model
         //console.log("added 2 to page state");
       } else {
         pageState += 1;
+        setResidentStatus("resident");
       }
     } else {
       if (pageState === 1 && selected === 1) {
@@ -41,7 +50,8 @@ const CreateAccount = ({ changeDisplay }) => {
       <div>
         <p className="normalText">Please enter your property number</p>
         <p className="smallText">**This sould have been provided via email**</p>
-        <InputField></InputField>
+        {/**<InputField></InputField>*/}
+        <input></input>
         {phoneNumber()}
       </div>
     );
@@ -50,7 +60,7 @@ const CreateAccount = ({ changeDisplay }) => {
     return (
       <div>
         <p className="normalText">Please enter your unit number</p>
-        <InputField></InputField>
+        <InputField setInputValue={setUnit}></InputField>
         {phoneNumber()}
       </div>
     );
@@ -60,7 +70,7 @@ const CreateAccount = ({ changeDisplay }) => {
       <>
         <p className="noBoldText">optional</p>
         <p className="normalText">Please provide a phone number</p>
-        <InputField></InputField>
+        <InputField setInputValue={setPhoneNumber}></InputField>
       </>
     );
   }
@@ -68,6 +78,8 @@ const CreateAccount = ({ changeDisplay }) => {
     return (
       <>
         <div>
+          <p className="normalText">Please enter your first name</p>
+          <InputField setInputValue={setForename}></InputField>
           <ChoicePicker
             items={options}
             setSelected={(index) => {

@@ -11,12 +11,12 @@ const Homepage = () => {
   function showPages() {
     if (signedIn) {
       //user is signed in
-      if (resident) {
+      if (resident === "resident") {
         return <ResidentHome></ResidentHome>;
         //Show resident page
       } else {
         //show landlord page
-        return <LandlordHome/>;
+        return <LandlordHome />;
       }
     } else {
       //user is not signed in Show sign in information
