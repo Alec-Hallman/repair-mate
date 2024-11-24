@@ -2,6 +2,7 @@
   color: white;
   display: flex;
   text-align: left;
+  gap: 5px;
   max-width: 50vw;
 }
 .option-container:hover {
