@@ -13,7 +13,7 @@ export const claimModel = createContext(null);
 
 const ClaimModel = ({ children }) => {
   const { email, propertyId, unitNumber } = useContext(appModel);
-
+  const [userClaims, setUserClaims] = useState({});
   const postClaim = async () => {
     const apiUrl =
       "https://5a44gaw8n6.execute-api.us-east-2.amazonaws.com/prod/createClaims";
@@ -52,12 +52,11 @@ const ClaimModel = ({ children }) => {
       // Send the email as a query parameter
       const response = await axios.get(apiUrl, {
         params: {
-          userEmail: email, // Pass email as a query parameter
+          userEmail: email,
         },
       });
-
-      // Log the response directly (no need for parsing here)
-      console.log(response.data); // Logs the data returned by the Lambda function
+      const parsed = JSON.parse(response.data.body);
+      setUserClaims(parsed.userData); //sets user claims to a JSOn object
     } catch (error) {
       console.log("Error fetching user claims:", error.message);
     }
