@@ -13,6 +13,7 @@ const CreateAccount = ({ changeDisplay }) => {
     setPhoneNumber,
     setUnit,
     setForename,
+    setProperty,
   } = useContext(appModel);
   const options = ["Resident", "Landlord/Property Management"];
   const [selected, setSelected] = useState(-1);
@@ -46,15 +47,7 @@ const CreateAccount = ({ changeDisplay }) => {
     setPageState(pageState);
   };
   function Landlord() {
-    return (
-      <div>
-        <p className="normalText">Please enter your property number</p>
-        <p className="smallText">**This sould have been provided via email**</p>
-        {/**<InputField></InputField>*/}
-        <input></input>
-        {phoneNumber()}
-      </div>
-    );
+    return <div>{phoneNumber()}</div>;
   }
   function Resident() {
     return (
@@ -80,6 +73,9 @@ const CreateAccount = ({ changeDisplay }) => {
         <div>
           <p className="normalText">Please enter your first name</p>
           <InputField setInputValue={setForename}></InputField>
+          <p className="normalText">Please enter the adress of the building </p>
+
+          <InputField setInputValue={setProperty}></InputField>
           <ChoicePicker
             items={options}
             setSelected={(index) => {

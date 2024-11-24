@@ -13,6 +13,7 @@ const InfoManager = ({ children }) => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [resident, setResidentStatus] = useState("");
   const [selectedProblem, setProblem] = useState("");
+  const [propertyId, setProperty] = useState("");
   const [unitNumber, setUnit] = useState("");
   const [residentPageState, setResidentPage] = useState(-1);
   const [[w1Text, bText, w2Text], setHeaderText] = useState([
@@ -31,6 +32,7 @@ const InfoManager = ({ children }) => {
       foreName: userForename,
       unitNumber: unitNumber,
       phoneNumber: phoneNumber,
+      propertyId: propertyId,
     };
     try {
       const responce = await axios.post(apiUrl, userData);
@@ -54,11 +56,21 @@ const InfoManager = ({ children }) => {
       const parsedRepsonce = JSON.parse(simpleResponce);
       const parseAgain = JSON.parse(parsedRepsonce);
       const userData = parseAgain.userData;
+      console.log(parseAgain);
       setSignedIn(true);
       setPhoneNumber(userData.phoneNumber);
       setResidentStatus(userData.role);
       setUnit(userData.unitNumber);
       setForename(userData.foreName);
+      setProperty(userData.propertyId);
+      console.log(
+        "PhoneNumber set to:",
+        phoneNumber,
+        "Property set to: ",
+        propertyId,
+        "received property: ",
+        userData.propertyId
+      );
     } catch (error) {
       console.log(error.message);
     }
@@ -85,6 +97,7 @@ const InfoManager = ({ children }) => {
         resident,
         signedIn,
         residentPageState,
+        propertyId,
         setUnit,
         setPhoneNumber,
         postAccount,
@@ -99,6 +112,7 @@ const InfoManager = ({ children }) => {
         setSignedIn,
         setHeaderText,
         getUser,
+        setProperty,
       }}
     >
       {children}

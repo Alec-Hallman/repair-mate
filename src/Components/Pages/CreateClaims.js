@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import HeaderText from "../Elements/HeaderText";
 import UserButton from "../Elements/Button";
 import ChoicePicker from "../Elements/ChoisePicker";
@@ -11,6 +11,8 @@ import { claimModel } from "../../Models/CreateClaimModel";
 import LargeButton from "../Elements/LargeButton";
 
 const CreateClaims = () => {
+  const { setResidentPage } = useContext(appModel);
+
   const {
     unitSelection,
     report,
@@ -28,9 +30,16 @@ const CreateClaims = () => {
     maintenanceOptions,
     inUnitonProperty,
     setMaintenance,
+    postClaim,
   } = useContext(claimModel);
 
-  const { setResidentPage } = useContext(appModel);
+  useEffect(() => {
+    if (stepCounter === 12) {
+      postClaim();
+      setResidentPage(-1);
+    }
+  }, [stepCounter, postClaim, setResidentPage]);
+
   function pageState() {
     if (stepCounter === 0) {
       return (
@@ -87,7 +96,7 @@ const CreateClaims = () => {
           })}
         </>
       );
-    } else {
+    } else if (stepCounter === 12) {
       setResidentPage(-1);
       return <></>;
     }

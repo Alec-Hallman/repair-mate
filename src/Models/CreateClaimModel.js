@@ -1,8 +1,68 @@
-import { Children, createContext, useEffect, useState } from "react";
+import {
+  Children,
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
+import axios from "axios";
+
+import { appModel } from "./appModel";
 
 export const claimModel = createContext(null);
 
 const ClaimModel = ({ children }) => {
+  const { email, propertyId, unitNumber } = useContext(appModel);
+
+  const postClaim = async () => {
+    const apiUrl =
+      "https://5a44gaw8n6.execute-api.us-east-2.amazonaws.com/prod/createClaims";
+    const claimData = {
+      userEmail: email,
+      propertyId: propertyId,
+      unitNumber: unitNumber,
+      description: description,
+      location: report[1],
+      maintenance: report[7],
+      problem: report[3],
+    };
+    console.log(
+      "Sending this info to database:",
+      email,
+      propertyId,
+      unitNumber,
+      description,
+      report[1],
+      report[7],
+      report[3]
+    );
+    try {
+      const responce = await axios.post(apiUrl, claimData);
+      console.log("Success! I think: ", responce);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  const getUserClaims = async () => {
+    const apiUrl =
+      "https://5a44gaw8n6.execute-api.us-east-2.amazonaws.com/prod/getUserClaims?userEmail=hallman.alec13@gmail.com";
+
+    try {
+      // Send the email as a query parameter
+      const response = await axios.get(apiUrl, {
+        params: {
+          userEmail: email, // Pass email as a query parameter
+        },
+      });
+
+      // Log the response directly (no need for parsing here)
+      console.log(response.data); // Logs the data returned by the Lambda function
+    } catch (error) {
+      console.log("Error fetching user claims:", error.message);
+    }
+  };
+
   const onProperty = [
     "Elevators",
     "Garbage Disposal",
@@ -133,6 +193,8 @@ const ClaimModel = ({ children }) => {
         inUnitonProperty,
         setProblemSelected,
         setDescription,
+        postClaim,
+        getUserClaims,
       }}
     >
       {children}

@@ -3,7 +3,7 @@ import { appModel } from "../../Models/appModel";
 import HeaderText from "../Elements/HeaderText";
 import UserButton from "../Elements/Button";
 import CreateClaims from "./CreateClaims";
-import ClaimModel from "../../Models/CreateClaimModel";
+import ClaimModel, { claimModel } from "../../Models/CreateClaimModel";
 import SeeClaims from "./SeeClaims";
 
 const PAGE_STATES = {
@@ -26,7 +26,6 @@ const ResidentHome = () => {
       setHeaderText(["Hello", userForename, ", welcome back!"]);
     }
   }, [bText, w2Text, setHeaderText]);
-
   function showPage() {
     if (residentPageState === -1) {
       return (
@@ -56,11 +55,7 @@ const ResidentHome = () => {
         </>
       );
     } else if (residentPageState === PAGE_STATES.CREATECLAIM) {
-      return (
-        <ClaimModel>
-          <CreateClaims></CreateClaims>
-        </ClaimModel>
-      );
+      return <CreateClaims></CreateClaims>;
     } else if (residentPageState === PAGE_STATES.SEECLAIMS) {
       return (
         <>
@@ -69,6 +64,10 @@ const ResidentHome = () => {
       );
     }
   }
-  return <>{showPage()}</>;
+  return (
+    <>
+      <ClaimModel>{showPage()}</ClaimModel>
+    </>
+  );
 };
 export default ResidentHome;
