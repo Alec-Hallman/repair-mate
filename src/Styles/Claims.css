@@ -1,0 +1,47 @@
+.top-row {
+  margin-top: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10px;
+}
+.claim-container {
+  display: flex;
+  flex-direction: column;
+  width: calc(90% - 5px); /* Adjust as needed */
+  border-radius: 30px;
+  max-height: 80px;
+  border: solid #208aae 3px;
+  margin-left: calc(5% - 5px);
+  gap: 0px;
+  min-height: min(7vh, 100px);
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+.claim-container:hover {
+  cursor: pointer;
+}
+.description-text {
+  user-select: none;
+  font-weight: 350;
+  margin-left: 4px;
+  font-size: 14.5px;
+  color: white;
+  text-overflow: ellipsis;
+  overflow: scroll;
+  scroll-behavior: smooth;
+  text-wrap: wrap;
+  scrollbar-width: none;
+}
+.largeClaim {
+  padding: 20px;
+}
+.bottomClaim-container {
+  bottom: 0;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  padding: 0px;
+  width: 93%;
+}

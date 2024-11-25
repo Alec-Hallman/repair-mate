@@ -4,7 +4,7 @@ import { appModel } from "../../Models/appModel";
 import { claimModel } from "../../Models/CreateClaimModel";
 
 const SeeClaims = () => {
-  const { setHeaderText } = useContext(appModel);
+  const { setHeaderText, userClaims } = useContext(appModel);
   const { getUserClaims } = useContext(claimModel);
   useEffect(() => {
     setHeaderText(["Here are your", "past", "maintenance requests"]);
@@ -13,7 +13,7 @@ const SeeClaims = () => {
 
   return (
     <>
-      <PurpleBox></PurpleBox>
+      <PurpleBox userClaims={userClaims}></PurpleBox>
     </>
   );
 };

@@ -12,8 +12,8 @@ import { appModel } from "./appModel";
 export const claimModel = createContext(null);
 
 const ClaimModel = ({ children }) => {
-  const { email, propertyId, unitNumber } = useContext(appModel);
-  const [userClaims, setUserClaims] = useState({});
+  const { email, propertyId, unitNumber, setUserClaims, userForename } =
+    useContext(appModel);
   const postClaim = async () => {
     const apiUrl =
       "https://5a44gaw8n6.execute-api.us-east-2.amazonaws.com/prod/createClaims";
@@ -25,6 +25,7 @@ const ClaimModel = ({ children }) => {
       location: report[1],
       maintenance: report[7],
       problem: report[3],
+      forename: userForename,
     };
     console.log(
       "Sending this info to database:",

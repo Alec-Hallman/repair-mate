@@ -21,6 +21,7 @@ const InfoManager = ({ children }) => {
     "...",
     " wait, who are you?",
   ]);
+  const [userClaims, setUserClaims] = useState({});
 
   const postAccount = async () => {
     const apiUrl =
@@ -83,6 +84,7 @@ const InfoManager = ({ children }) => {
   return (
     <appModel.Provider
       value={{
+        userClaims,
         unitNumber,
         phoneNumber,
         email,
@@ -98,6 +100,7 @@ const InfoManager = ({ children }) => {
         signedIn,
         residentPageState,
         propertyId,
+        setUserClaims,
         setUnit,
         setPhoneNumber,
         postAccount,

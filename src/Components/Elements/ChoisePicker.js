@@ -5,6 +5,10 @@ const ChoicePicker = ({ items, setSelected, selected }) => {
   const changeSelection = (index) => {
     setSelected(index);
   };
+  const [singleClaim, setSingleClaim] = useState({});
+  const claimClicked = (claim) => {
+    setSingleClaim(claim);
+  };
   return (
     <>
       <div>
