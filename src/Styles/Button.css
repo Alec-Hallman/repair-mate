@@ -17,8 +17,8 @@
 }
 .greenButton,
 .redButton {
-  min-width: 25vw;
-  min-height: 4vh;
+  width: min(25vw, 200px);
+  min-height: min(4vh, 45px);
 }
 .greenButton:hover {
   background-color: #abd1b589;

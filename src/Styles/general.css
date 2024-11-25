@@ -6,10 +6,11 @@
   font-weight: 650;
   text-align: center;
   margin: 0;
+  text-wrap: nowrap;
 }
 .l_headerText,
 .bl_headerText {
-  font-size: 35px;
+  font-size: min(4vw, 35px);
 }
 .s_headerText,
 .bs_headerText {
