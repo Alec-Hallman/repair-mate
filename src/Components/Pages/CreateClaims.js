@@ -31,7 +31,12 @@ const CreateClaims = () => {
     inUnitonProperty,
     setMaintenance,
     postClaim,
+    resetCreateClaim,
   } = useContext(claimModel);
+
+  useEffect(() => {
+    resetCreateClaim();
+  }, []);
 
   useEffect(() => {
     if (stepCounter === 12) {

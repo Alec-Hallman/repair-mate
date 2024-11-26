@@ -32,7 +32,7 @@ const ClaimModel = ({ children }) => {
       "December",
     ];
     const status = "Unopened";
-    const date = `Created on: ${months[month - 1]} ${day}`;
+    const date = `Created on: ${months[month]} ${day}`;
     const apiUrl =
       "https://5a44gaw8n6.execute-api.us-east-2.amazonaws.com/prod/createClaims";
     const claimData = {
@@ -164,6 +164,17 @@ const ClaimModel = ({ children }) => {
     setW2Text(w2TextOptions[stepCounter / 2]);
   };
 
+  const resetCreateClaim = () => {
+    setDescription("");
+    setProgress(["☐", "--", "☐", "--", "☐", "--", "☐", "--", "☐", "-->Done!"]);
+    setSelected(-1);
+    setMaintenanceSelection(-1);
+    setCounter(0);
+    setBText(bTextOptions[stepCounter / 2]);
+    setW1Text(w1TextOptions[stepCounter / 2]);
+    setW2Text(w2TextOptions[stepCounter / 2]);
+  };
+
   const inUnitonProperty = (index) => {
     setSelected(index);
   };
@@ -215,6 +226,7 @@ const ClaimModel = ({ children }) => {
         setDescription,
         postClaim,
         getUserClaims,
+        resetCreateClaim,
       }}
     >
       {children}

@@ -21,6 +21,7 @@ const ResidentHome = () => {
     residentPageState,
     setResidentPage,
   } = useContext(appModel);
+  const { resetCreateClaim } = useContext(claimModel);
   useEffect(() => {
     if (residentPageState === PAGE_STATES.INITIAL) {
       setHeaderText(["Hello", userForename, ", welcome back!"]);
@@ -38,6 +39,7 @@ const ResidentHome = () => {
             green={true}
             text={"Create a claim"}
             onClick={() => {
+              resetCreateClaim();
               setResidentPage(PAGE_STATES.CREATECLAIM);
             }}
           ></UserButton>
@@ -64,10 +66,6 @@ const ResidentHome = () => {
       );
     }
   }
-  return (
-    <>
-      <ClaimModel>{showPage()}</ClaimModel>
-    </>
-  );
+  return <>{showPage()}</>;
 };
 export default ResidentHome;

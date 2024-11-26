@@ -5,6 +5,7 @@ import HomeButton from "../Elements/HomeButton";
 import SigninPage from "./SigninPage";
 import ResidentHome from "./ResidentHome.js";
 import LandlordHome from "./LandlordHome.js";
+import ClaimModel from "../../Models/CreateClaimModel.js";
 
 const Homepage = () => {
   const { signedIn, resident, w1Text, w2Text, bText, setSignedIn } =
@@ -13,7 +14,11 @@ const Homepage = () => {
     if (signedIn) {
       //user is signed in
       if (resident === "resident") {
-        return <ResidentHome></ResidentHome>;
+        return (
+          <ClaimModel>
+            <ResidentHome></ResidentHome>
+          </ClaimModel>
+        );
         //Show resident page
       } else {
         //show landlord page
