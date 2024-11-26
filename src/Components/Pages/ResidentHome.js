@@ -20,7 +20,11 @@ const ResidentHome = () => {
     w2Text,
     residentPageState,
     setResidentPage,
+    signedIn,
   } = useContext(appModel);
+  useEffect(() => {
+    setResidentPage(-1);
+  }, [signedIn]);
   const { resetCreateClaim } = useContext(claimModel);
   useEffect(() => {
     if (residentPageState === PAGE_STATES.INITIAL) {
