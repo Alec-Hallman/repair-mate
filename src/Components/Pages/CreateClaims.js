@@ -1,11 +1,10 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import HeaderText from "../Elements/HeaderText";
 import UserButton from "../Elements/Button";
 import ChoicePicker from "../Elements/ChoisePicker";
 import DropDownMenu from "../Elements/DropDownMenu";
 import { appModel } from "../../Models/appModel";
 import "../../Styles/DropDown.css";
-import InputField from "../Elements/InputField";
 import LargeInput from "../Elements/LargeInputField";
 import { claimModel } from "../../Models/CreateClaimModel";
 import LargeButton from "../Elements/LargeButton";
@@ -22,7 +21,6 @@ const CreateClaims = () => {
     progress,
     nextStep,
     selected,
-    setSelected,
     w1Text,
     w2Text,
     bText,

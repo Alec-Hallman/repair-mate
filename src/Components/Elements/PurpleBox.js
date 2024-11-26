@@ -6,7 +6,6 @@ import SmallClaim from "./SmallClaim";
 import DisplayClaim from "./DisplayClaim";
 import UserButton from "./Button";
 import ChangeStatus from "./ChangeStatus";
-import { claimModel } from "../../Models/CreateClaimModel";
 const PurpleBox = ({
   w1Text,
   bText,

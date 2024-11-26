@@ -1,10 +1,4 @@
-import {
-  Children,
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
 
 import { appModel } from "./appModel";
@@ -20,8 +14,7 @@ const ClaimModel = ({ children }) => {
     setUserClaims,
     userForename,
   } = useContext(appModel);
-  const [status, setStatus] = useState("Unopened");
-
+  const status = "Unopened";
   const postClaim = async () => {
     const now = new Date();
     const day = now.getDate();
@@ -67,7 +60,7 @@ const ClaimModel = ({ children }) => {
     //   report[3]
     // );
     try {
-      const responce = await axios.post(apiUrl, claimData);
+      await axios.post(apiUrl, claimData);
       //console.log("Success! I think: ", responce);
     } catch (error) {
       console.log(error.message);
@@ -137,7 +130,6 @@ const ClaimModel = ({ children }) => {
   const [selected, setSelected] = useState(-1);
   const [maintenanceSelection, setMaintenanceSelection] = useState(-1);
   var [stepCounter, setCounter] = useState(0);
-  const [inUnitState, setUnitState] = useState("");
   const [description, setDescription] = useState("");
   const [report, setReport] = useState([
     "Where is the issue: ",

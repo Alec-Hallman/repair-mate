@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import UserButton from "../Elements/Button";
 import ChoicePicker from "../Elements/ChoisePicker";
 import InputField from "../Elements/InputField";

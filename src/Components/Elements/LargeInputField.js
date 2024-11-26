@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import "../../Styles/Input.css";
-import ClaimModel, { claimModel } from "../../Models/CreateClaimModel";
+import { claimModel } from "../../Models/CreateClaimModel";
 
 const LargeInput = () => {
   const { setDescription } = useContext(claimModel);
