@@ -24,7 +24,7 @@ const ChoicePicker = ({ items, setSelected, selected }) => {
             ) : (
               <p className="normalText">0</p>
             )}
-            <p className="normalText">{items[index]}</p>
+            <p className="normalText">{item}</p>
           </div>
         ))}
       </div>

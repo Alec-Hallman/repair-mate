@@ -15,6 +15,24 @@ const ClaimModel = ({ children }) => {
   const { email, propertyId, unitNumber, setUserClaims, userForename } =
     useContext(appModel);
   const postClaim = async () => {
+    const now = new Date();
+    const day = now.getDate();
+    const month = now.getMonth();
+    const months = [
+      "",
+      "January",
+      "Feburary",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "December",
+    ];
+    const status = "Unopened";
+    const date = `Created on: ${months[month - 1]} ${day}`;
     const apiUrl =
       "https://5a44gaw8n6.execute-api.us-east-2.amazonaws.com/prod/createClaims";
     const claimData = {
@@ -26,6 +44,8 @@ const ClaimModel = ({ children }) => {
       maintenance: report[7],
       problem: report[3],
       forename: userForename,
+      date: date,
+      status: status,
     };
     console.log(
       "Sending this info to database:",

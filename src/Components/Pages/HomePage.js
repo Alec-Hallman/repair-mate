@@ -7,7 +7,8 @@ import ResidentHome from "./ResidentHome.js";
 import LandlordHome from "./LandlordHome.js";
 
 const Homepage = () => {
-  const { signedIn, resident, w1Text, w2Text, bText } = useContext(appModel);
+  const { signedIn, resident, w1Text, w2Text, bText, setSignedIn } =
+    useContext(appModel);
   function showPages() {
     if (signedIn) {
       //user is signed in
@@ -28,7 +29,15 @@ const Homepage = () => {
       <div className="app">
         <div className="header-container">
           <HomeButton></HomeButton>
+          <button
+            onClick={() => {
+              setSignedIn(false);
+            }}
+          >
+            Sign Out
+          </button>
         </div>
+        <div style={{ marginTop: "10px" }}></div>
         <HeaderText
           w1Text={w1Text}
           bText={bText}
