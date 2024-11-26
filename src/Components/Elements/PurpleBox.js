@@ -18,7 +18,7 @@ const PurpleBox = ({
   const [selectedClaim, setSelectedClaim] = useState({});
   const { setResidentPage, resident } = useContext(appModel);
   const [changeStatus, setStatus] = useState(false);
-  console.log("resident: ", resident);
+  //console.log("resident: ", resident);
   function displayClaim() {
     if (selectedClaim.problem === undefined && userClaims.length > 0) {
       return (
@@ -27,7 +27,7 @@ const PurpleBox = ({
             <div
               onClick={() => {
                 setSelectedClaim(claim);
-                console.log("selected Claim", selectedClaim);
+                //console.log("selected Claim", selectedClaim);
               }}
             >
               <SmallClaim claim={claim}></SmallClaim>
@@ -75,7 +75,10 @@ const PurpleBox = ({
         )}
       </div>
       {changeStatus ? (
-        <ChangeStatus changeStatus={setStatus}></ChangeStatus>
+        <ChangeStatus
+          claim={selectedClaim}
+          changeStatus={setStatus}
+        ></ChangeStatus>
       ) : (
         <></>
       )}

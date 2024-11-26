@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "../../Styles/ChangeStatus.css";
 import ChoicePicker from "./ChoisePicker";
 import HeaderText from "./HeaderText";
 import UserButton from "./Button";
+import { claimModel } from "../../Models/CreateClaimModel";
+import { appModel } from "../../Models/appModel";
 
-const ChangeStatus = ({ changeStatus }) => {
+const ChangeStatus = ({ claim, changeStatus }) => {
   const options = ["Under Review", "Worker assigned", "Completed"];
   const [selectedStatus, setStatus] = useState("");
+  const { changeClaimStatus } = useContext(appModel);
   return (
     <div className="changeStatus-background">
       <div className="changeStatus-container">
@@ -22,6 +25,8 @@ const ChangeStatus = ({ changeStatus }) => {
             text={"Submit"}
             onClick={() => {
               changeStatus(false);
+              const chosenStatus = options[selectedStatus];
+              changeClaimStatus(chosenStatus, claim);
             }}
           ></UserButton>
         </div>

@@ -71,7 +71,7 @@ const CreateAccount = ({ changeDisplay }) => {
     return (
       <>
         <div>
-          <p className="normalText">Please enter your first name</p>
+          <p className="normalText">Please enter your full name</p>
           <InputField setInputValue={setForename}></InputField>
           <p className="normalText">Please enter the adress of the building </p>
 

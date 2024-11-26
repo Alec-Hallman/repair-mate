@@ -14,6 +14,8 @@ export const claimModel = createContext(null);
 const ClaimModel = ({ children }) => {
   const { email, propertyId, unitNumber, setUserClaims, userForename } =
     useContext(appModel);
+  const [status, setStatus] = useState("Unopened");
+
   const postClaim = async () => {
     const now = new Date();
     const day = now.getDate();
@@ -31,7 +33,6 @@ const ClaimModel = ({ children }) => {
       "September",
       "December",
     ];
-    const status = "Unopened";
     const date = `Created on: ${months[month]} ${day}`;
     const apiUrl =
       "https://5a44gaw8n6.execute-api.us-east-2.amazonaws.com/prod/createClaims";
@@ -47,24 +48,23 @@ const ClaimModel = ({ children }) => {
       date: date,
       status: status,
     };
-    console.log(
-      "Sending this info to database:",
-      email,
-      propertyId,
-      unitNumber,
-      description,
-      report[1],
-      report[7],
-      report[3]
-    );
+    // console.log(
+    //   "Sending this info to database:",
+    //   email,
+    //   propertyId,
+    //   unitNumber,
+    //   description,
+    //   report[1],
+    //   report[7],
+    //   report[3]
+    // );
     try {
       const responce = await axios.post(apiUrl, claimData);
-      console.log("Success! I think: ", responce);
+      //console.log("Success! I think: ", responce);
     } catch (error) {
       console.log(error.message);
     }
   };
-
   const getUserClaims = async () => {
     setUserClaims({});
     const apiUrl =
@@ -185,7 +185,7 @@ const ClaimModel = ({ children }) => {
     if (selected === 0) {
       newReport[3] = inUnit[problemSelected];
     } else {
-      console.log(selected);
+      //console.log(selected);
       newReport[3] = onProperty[problemSelected];
     }
     newReport[5] = description;

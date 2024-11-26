@@ -47,6 +47,26 @@ const InfoManager = ({ children }) => {
     }
   };
 
+  const changeClaimStatus = async (newStatus, claim) => {
+    console.log("Change status called:", newStatus);
+    if (newStatus !== claim.status) {
+      const apiUrl =
+        "https://5a44gaw8n6.execute-api.us-east-2.amazonaws.com/prod/changeStatus";
+      const userData = {
+        propertyId: claim.propertyId,
+        claimId: claim.claimId,
+        newStatus: newStatus,
+      };
+      try {
+        const responce = await axios.post(apiUrl, userData);
+        console.log(userData);
+        console.log("Response:", responce.data);
+      } catch (error) {
+        console.error("Error updating status:", error);
+      }
+    }
+  };
+
   const getUser = async () => {
     const apiUrl =
       "https://5a44gaw8n6.execute-api.us-east-2.amazonaws.com/prod/getUser";
@@ -120,6 +140,7 @@ const InfoManager = ({ children }) => {
         setHeaderText,
         getUser,
         setProperty,
+        changeClaimStatus,
       }}
     >
       {children}
