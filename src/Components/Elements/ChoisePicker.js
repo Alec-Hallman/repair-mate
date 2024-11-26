@@ -22,7 +22,7 @@ const ChoicePicker = ({ items, setSelected, selected }) => {
             {selected != null && selected === index ? (
               <p className="normalText">✅</p>
             ) : (
-              <p className="normalText">0</p>
+              <p className="normalText">☐</p>
             )}
             <p className="normalText">{item}</p>
           </div>
