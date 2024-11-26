@@ -14,7 +14,10 @@ const SeeClaims = () => {
 
   return (
     <>
-      <PurpleBox userClaims={userClaims}></PurpleBox>
+      <PurpleBox
+        userClaims={userClaims}
+        getUserClaims={getUserClaims}
+      ></PurpleBox>
     </>
   );
 };

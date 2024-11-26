@@ -66,6 +66,7 @@ const ClaimModel = ({ children }) => {
   };
 
   const getUserClaims = async () => {
+    setUserClaims({});
     const apiUrl =
       "https://5a44gaw8n6.execute-api.us-east-2.amazonaws.com/prod/getUserClaims?userEmail=hallman.alec13@gmail.com";
 

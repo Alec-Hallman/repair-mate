@@ -1,8 +1,9 @@
 import "../../Styles/homeButton.css";
+import SignOut from "./SignOut";
 const HomeButton = () => {
   return (
     <>
-      <div>
+      <div className="home-container">
         <img
           className="homeButton"
           src="repair_logo.png"
@@ -11,6 +12,12 @@ const HomeButton = () => {
             console.log("button has been clicked");
           }}
         ></img>
+        <img
+          alt="logoText"
+          src="./ResuMateText.png"
+          className="logo-text"
+        ></img>
+        <SignOut></SignOut>
       </div>
     </>
   );

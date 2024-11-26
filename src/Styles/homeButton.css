@@ -1,4 +1,7 @@
 .homeButton {
   height: 70px;
-  width: 70px;
+  width: 85px;
+}
+.home-container {
+  display: flex;
 }

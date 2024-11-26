@@ -6,7 +6,15 @@ import SmallClaim from "./SmallClaim";
 import DisplayClaim from "./DisplayClaim";
 import UserButton from "./Button";
 import ChangeStatus from "./ChangeStatus";
-const PurpleBox = ({ w1Text, bText, w2Text, userClaims }) => {
+import { claimModel } from "../../Models/CreateClaimModel";
+const PurpleBox = ({
+  w1Text,
+  bText,
+  w2Text,
+  userClaims,
+  resetLandlord,
+  getUserClaims,
+}) => {
   const [selectedClaim, setSelectedClaim] = useState({});
   const { setResidentPage, resident } = useContext(appModel);
   const [changeStatus, setStatus] = useState(false);
@@ -68,6 +76,22 @@ const PurpleBox = ({ w1Text, bText, w2Text, userClaims }) => {
       </div>
       {changeStatus ? (
         <ChangeStatus changeStatus={setStatus}></ChangeStatus>
+      ) : (
+        <></>
+      )}
+      {selectedClaim.problem === undefined ? (
+        <button
+          className="refresh-button"
+          onClick={() => {
+            if (resident !== "landlord") {
+              getUserClaims();
+            } else {
+              resetLandlord();
+            }
+          }}
+        >
+          refresh
+        </button>
       ) : (
         <></>
       )}

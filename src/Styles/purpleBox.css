@@ -25,6 +25,18 @@
   resize: none;
   overflow: scroll;
 }
+.refresh-button {
+  border: none;
+  background-color: white;
+  border-radius: 10px;
+  width: min(20vw, 190px);
+  font-weight: 550;
+  font-size: 15px;
+  margin-top: 10px;
+}
+.refresh-button:hover {
+  background-color: rgb(213, 213, 213);
+}
 .PurpleBox::-webkit-scrollbar {
   width: 8px; /* Scrollbar width */
 }

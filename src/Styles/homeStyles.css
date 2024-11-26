@@ -7,3 +7,20 @@
 body {
   background-color: #4e4d5c;
 }
+.signout-button {
+  width: 60px;
+  height: 60px;
+}
+.signout-button:hover {
+  cursor: pointer;
+}
+.signout-image {
+  width: 60px;
+  height: 60px;
+  padding: 7px;
+  filter: invert(1);
+}
+.logo-text {
+  padding: 5px;
+  width: min(40vw, 300px);
+}

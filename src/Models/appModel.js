@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import axios from "axios";
 
 export const appModel = createContext(null);
@@ -22,6 +22,10 @@ const InfoManager = ({ children }) => {
     " wait, who are you?",
   ]);
   const [userClaims, setUserClaims] = useState({});
+
+  useEffect(() => {
+    setHeaderText(["Hey", "...", " wait, who are you?"]);
+  }, [signedIn]);
 
   const postAccount = async () => {
     const apiUrl =

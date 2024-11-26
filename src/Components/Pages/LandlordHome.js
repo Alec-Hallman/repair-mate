@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { appModel } from "../../Models/appModel";
 import HeaderText from "../Elements/HeaderText";
 import PurpleBox from "../Elements/PurpleBox";
@@ -13,6 +13,11 @@ const LandlordHome = () => {
     propertyId,
     setUserClaims,
   } = useContext(appModel);
+  var [refreshClicked, setRefreashed] = useState(false);
+  const reloadPage = () => {
+    setRefreashed(!refreshClicked);
+    setUserClaims({});
+  };
   useEffect(() => {
     setHeaderText(["Hello", userForename, ", welcome back!"]);
   }, [bText, w2Text, setHeaderText]);
@@ -36,7 +41,7 @@ const LandlordHome = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [refreshClicked]);
 
   function mRequests() {
     return (
@@ -46,6 +51,7 @@ const LandlordHome = () => {
           w1Text="Here's what"
           bText="currently"
           w2Text="needs your attention:"
+          resetLandlord={reloadPage}
         ></PurpleBox>
       </>
     );
