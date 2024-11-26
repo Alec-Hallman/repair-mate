@@ -20,7 +20,11 @@ const PurpleBox = ({
   const [changeStatus, setStatus] = useState(false);
   //console.log("resident: ", resident);
   function displayClaim() {
-    if (selectedClaim.problem === undefined && userClaims.length > 0) {
+    if (
+      userClaims !== undefined &&
+      selectedClaim.problem === undefined &&
+      userClaims.length > 0
+    ) {
       return (
         <>
           {userClaims.map((claim, index) => (
@@ -36,13 +40,23 @@ const PurpleBox = ({
           ))}
         </>
       );
-    } else if (selectedClaim.problem !== undefined) {
+    } else if (
+      userClaims !== undefined &&
+      selectedClaim.problem !== undefined
+    ) {
       return (
         <DisplayClaim
           selectedClaim={selectedClaim}
           setSelectedClaim={setSelectedClaim}
           setStatus={setStatus}
         ></DisplayClaim>
+      );
+    } else {
+      console.log("Showing Nothing");
+      return (
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <p className="normalText">Claims you've made will appear here</p>
+        </div>
       );
     }
   }

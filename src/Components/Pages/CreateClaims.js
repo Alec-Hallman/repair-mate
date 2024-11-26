@@ -91,7 +91,7 @@ const CreateClaims = () => {
       );
     } else if (stepCounter === 10) {
       return (
-        <>
+        <div className="report-container">
           {report.map((text, index) => {
             return (
               <p className={index % 2 === 0 ? "normalText" : "noBoldText"}>
@@ -99,7 +99,7 @@ const CreateClaims = () => {
               </p>
             );
           })}
-        </>
+        </div>
       );
     } else if (stepCounter === 12) {
       setResidentPage(-1);

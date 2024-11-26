@@ -3,7 +3,7 @@ import "../../Styles/purpleBox.css";
 import UserButton from "./Button";
 import { appModel } from "../../Models/appModel";
 import ChangeStatus from "./ChangeStatus";
-const DisplayClaim = ({ selectedClaim, setSelectedClaim, setStatus }) => {
+const DisplayClaim = ({ selectedClaim, setStatus }) => {
   const { resident } = useContext(appModel);
   return (
     <>
@@ -32,6 +32,9 @@ const DisplayClaim = ({ selectedClaim, setSelectedClaim, setStatus }) => {
         <p className="description-text">{selectedClaim.maintenance}</p>
         <p className="normalText">Contact Information:</p>
         <p className="description-text">Email: {selectedClaim.userEmail}</p>
+        <p className="description-text">
+          Phone Number: {selectedClaim.phoneNumber}
+        </p>
         <p className="normalText">Status: </p>
         <p className="description-text">{selectedClaim.status}</p>
         <div className="status-container">

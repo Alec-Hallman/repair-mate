@@ -14,54 +14,50 @@ const CreateAccount = ({ changeDisplay }) => {
     setUnit,
     setForename,
     setProperty,
+    email,
+    password,
+    userForename,
+    phoneNumber,
+    propertyId,
   } = useContext(appModel);
   const options = ["Resident", "Landlord/Property Management"];
+  const [invalid, setInvalid] = useState(false);
   const [selected, setSelected] = useState(-1);
   var [pageState, setPageState] = useState(-1);
-  function PageState() {
-    if (pageState === -1) return <>{ResorLord()}</>;
-    if (pageState === 0) return <>{Resident()}</>;
-    if (pageState === 1) return <>{Landlord()}</>;
-  }
   const nextPageState = (forward) => {
     if (forward) {
-      if (pageState === 0 || pageState === 1) {
-        setSignedIn(true);
-        postAccount();
-      } else if (pageState === -1 && selected === 1) {
-        //Land lord selected when page changed
-        pageState += 2; //change page to the landlord create account page
-        setResidentStatus("landlord"); //set that in the app model
-        //console.log("added 2 to page state");
-      } else {
-        pageState += 1;
+      if (selected === 0) {
         setResidentStatus("resident");
+      } else if (selected === 1) {
+        setResidentStatus("landlord");
       }
-    } else {
-      if (pageState === 1 && selected === 1) {
-        pageState -= 2;
+      if (
+        email !== "" &&
+        password !== "" &&
+        phoneNumber !== "" &&
+        userForename !== "" &&
+        propertyId !== "" &&
+        selected !== -1
+      ) {
+        postAccount();
+        setSignedIn(true);
       } else {
-        pageState -= 1;
+        setInvalid(true);
       }
     }
     setPageState(pageState);
   };
-  function Landlord() {
-    return <div>{phoneNumber()}</div>;
-  }
   function Resident() {
     return (
       <div>
         <p className="normalText">Please enter your unit number</p>
         <InputField setInputValue={setUnit}></InputField>
-        {phoneNumber()}
       </div>
     );
   }
-  function phoneNumber() {
+  function PhoneNumber() {
     return (
       <>
-        <p className="noBoldText">optional</p>
         <p className="normalText">Please provide a phone number</p>
         <InputField setInputValue={setPhoneNumber}></InputField>
       </>
@@ -70,10 +66,19 @@ const CreateAccount = ({ changeDisplay }) => {
   function ResorLord() {
     return (
       <>
+        {invalid ? (
+          <p style={{ color: "red", fontWeight: "500", fontSize: "20px" }}>
+            Please fill out all information
+          </p>
+        ) : (
+          <></>
+        )}
         <div>
           <p className="normalText">Please enter your full name</p>
           <InputField setInputValue={setForename}></InputField>
-          <p className="normalText">Please enter the adress of the building </p>
+          <p className="normalText">
+            Please enter the address of the building{" "}
+          </p>
 
           <InputField setInputValue={setProperty}></InputField>
           <ChoicePicker
@@ -83,6 +88,8 @@ const CreateAccount = ({ changeDisplay }) => {
             }}
             selected={selected}
           ></ChoicePicker>
+          {selected === 0 ? Resident() : <></>}
+          {PhoneNumber()}
           <LoginField></LoginField>
         </div>
         {/** Here will be the enter email/password */}
@@ -90,8 +97,8 @@ const CreateAccount = ({ changeDisplay }) => {
     );
   }
   return (
-    <>
-      {PageState()}
+    <div style={{ marginTop: "120px", height: "100%" }}>
+      {ResorLord()}
       <div className="bottom-container">
         <>
           <UserButton
@@ -108,13 +115,13 @@ const CreateAccount = ({ changeDisplay }) => {
         </>
         <UserButton
           green={true}
-          text={pageState < 0 ? "Next" : "Done"}
+          text="Done"
           onClick={() => {
             nextPageState(true);
           }}
         ></UserButton>
       </div>
-    </>
+    </div>
   );
 };
 export default CreateAccount;

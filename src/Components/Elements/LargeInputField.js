@@ -6,12 +6,12 @@ const LargeInput = () => {
   const { setDescription } = useContext(claimModel);
   return (
     <>
-      <input
+      <textarea
         className="large-input"
         onChange={(event) => {
           setDescription(event.target.value);
         }}
-      ></input>
+      ></textarea>
     </>
   );
 };

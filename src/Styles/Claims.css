@@ -45,3 +45,8 @@
   padding: 0px;
   width: 93%;
 }
+.report-container {
+  width: min(65vw, 500px);
+  height: min(60vh, 700px);
+  text-align: center;
+}

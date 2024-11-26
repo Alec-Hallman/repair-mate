@@ -12,8 +12,14 @@ import { appModel } from "./appModel";
 export const claimModel = createContext(null);
 
 const ClaimModel = ({ children }) => {
-  const { email, propertyId, unitNumber, setUserClaims, userForename } =
-    useContext(appModel);
+  const {
+    phoneNumber,
+    email,
+    propertyId,
+    unitNumber,
+    setUserClaims,
+    userForename,
+  } = useContext(appModel);
   const [status, setStatus] = useState("Unopened");
 
   const postClaim = async () => {
@@ -21,7 +27,6 @@ const ClaimModel = ({ children }) => {
     const day = now.getDate();
     const month = now.getMonth();
     const months = [
-      "",
       "January",
       "Feburary",
       "March",
@@ -31,6 +36,8 @@ const ClaimModel = ({ children }) => {
       "July",
       "August",
       "September",
+      "October",
+      "November",
       "December",
     ];
     const date = `Created on: ${months[month]} ${day}`;
@@ -47,6 +54,7 @@ const ClaimModel = ({ children }) => {
       forename: userForename,
       date: date,
       status: status,
+      phoneNumber: phoneNumber,
     };
     // console.log(
     //   "Sending this info to database:",
