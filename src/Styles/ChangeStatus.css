@@ -1,0 +1,28 @@
+.changeStatus-container {
+  background-color: rgb(96, 100, 184);
+  border-radius: 10px;
+  height: min(40vh, 800px);
+  width: min(50vw, 500px);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.changeStatus-background {
+  position: absolute;
+  top: 0vh;
+  bottom: 50vh;
+  width: 100%;
+  height: 100vh;
+  background-color: trans;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  backdrop-filter: blur(10px);
+}
+.submitButton {
+  position: fixed;
+  bottom: 28vh;
+}

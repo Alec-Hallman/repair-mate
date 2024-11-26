@@ -65,8 +65,7 @@
   height: 55vh;
 }
 .header-container {
-  user-select: none;
-  margin: 0px;
+  margin-top: 0px;
   display: flex;
   justify-content: center;
   align-content: center;

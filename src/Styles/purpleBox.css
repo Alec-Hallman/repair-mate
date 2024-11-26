@@ -1,24 +1,43 @@
-.PurpleBox-container {
+.purple-container {
   display: flex;
   flex-direction: column;
+  height: min(80vh, 1000px);
+  width: 100%;
+  justify-content: center;
   align-items: center;
-  gap: -40px;
-  width: min(90vw, 500px);
-  max-height: 1000px;
-  min-height: 70vh;
-  margin-top: 5px;
+  margin-top: 85px;
 }
-
-.PurpleBox {
+.status-container {
   display: flex;
   width: 100%;
-  height: 100%;
+  justify-content: center;
+  margin-top: 10px;
+}
+.PurpleBox {
+  display: flex;
+  width: min(90%, 600px);
+  height: min(50vh, 1000px);
   background-color: #70578b;
   border-radius: 50px;
-  position: relative;
-  top: 100px;
-  margin-top: 50px;
   padding: 5px;
   flex-direction: column;
   scroll-behavior: auto;
+  resize: none;
+  overflow: scroll;
+}
+.PurpleBox::-webkit-scrollbar {
+  width: 8px; /* Scrollbar width */
+}
+
+.PurpleBox::-webkit-scrollbar-track {
+  background: transparent; /* Transparent track */
+}
+
+.PurpleBox::-webkit-scrollbar-thumb {
+  background: gray; /* Color of the scrollbar thumb */
+  border-radius: 4px; /* Rounded scrollbar thumb for a smoother look */
+}
+
+.PurpleBox::-webkit-scrollbar-thumb:hover {
+  background: #6a6a6a; /* Slightly darker thumb on hover */
 }

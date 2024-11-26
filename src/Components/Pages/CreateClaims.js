@@ -111,26 +111,27 @@ const CreateClaims = () => {
       {pageState()}
 
       <div className="bottom-container">
-        {stepCounter > 0 ? (
-          <>
-            <UserButton
-              text={"Back"}
-              green={false}
-              onClick={() => {
+        <>
+          <UserButton
+            text={"Back"}
+            green={false}
+            onClick={() => {
+              if (stepCounter > 0) {
                 nextStep(false);
-              }}
-            ></UserButton>
-          </>
-        ) : (
-          <></>
-        )}
-        <UserButton
-          text={stepCounter !== 10 ? "Next" : "Submit"}
-          green={true}
-          onClick={() => {
-            nextStep(true);
-          }}
-        ></UserButton>
+              } else {
+                setResidentPage(-1);
+              }
+            }}
+          ></UserButton>
+
+          <UserButton
+            text={stepCounter !== 10 ? "Next" : "Submit"}
+            green={true}
+            onClick={() => {
+              nextStep(true);
+            }}
+          ></UserButton>
+        </>
       </div>
     </>
   );
