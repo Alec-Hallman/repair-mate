@@ -19,6 +19,7 @@ const CreateAccount = ({ changeDisplay }) => {
     userForename,
     phoneNumber,
     propertyId,
+    resident,
   } = useContext(appModel);
   const options = ["Resident", "Landlord/Property Management"];
   const [invalid, setInvalid] = useState(false);
@@ -39,6 +40,7 @@ const CreateAccount = ({ changeDisplay }) => {
         propertyId !== "" &&
         selected !== -1
       ) {
+        //console.log("Resident set to: ", resident);
         postAccount();
         setSignedIn(true);
       } else {
@@ -67,9 +69,7 @@ const CreateAccount = ({ changeDisplay }) => {
     return (
       <>
         {invalid ? (
-          <p style={{ color: "red", fontWeight: "500", fontSize: "20px" }}>
-            Please fill out all information
-          </p>
+          <p className="error-text">Please fill out all information</p>
         ) : (
           <></>
         )}

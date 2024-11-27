@@ -48,7 +48,7 @@ const InfoManager = ({ children }) => {
   };
 
   const changeClaimStatus = async (newStatus, claim) => {
-    console.log("Change status called:", newStatus);
+    //console.log("Change status called:", newStatus);
     if (newStatus !== claim.status) {
       const apiUrl =
         "https://5a44gaw8n6.execute-api.us-east-2.amazonaws.com/prod/changeStatus";
@@ -58,9 +58,9 @@ const InfoManager = ({ children }) => {
         newStatus: newStatus,
       };
       try {
-        const responce = await axios.post(apiUrl, userData);
-        console.log(userData);
-        console.log("Response:", responce.data);
+        await axios.post(apiUrl, userData);
+        //console.log(userData);
+        //console.log("Response:", responce.data);
       } catch (error) {
         console.error("Error updating status:", error);
       }
@@ -77,27 +77,26 @@ const InfoManager = ({ children }) => {
           password: password,
         },
       });
-      const simpleResponce = JSON.stringify(responce.data.body);
-      const parsedRepsonce = JSON.parse(simpleResponce);
-      const parseAgain = JSON.parse(parsedRepsonce);
-      const userData = parseAgain.userData;
-      console.log(parseAgain);
-      setSignedIn(true);
-      setPhoneNumber(userData.phoneNumber);
-      setResidentStatus(userData.role);
-      setUnit(userData.unitNumber);
-      setForename(userData.foreName);
-      setProperty(userData.propertyId);
-      console.log(
-        "PhoneNumber set to:",
-        phoneNumber,
-        "Property set to: ",
-        propertyId,
-        "received property: ",
-        userData.propertyId
-      );
+      if (responce.data.statusCode === 200) {
+        const simpleResponce = JSON.stringify(responce.data.body);
+        const parsedRepsonce = JSON.parse(simpleResponce);
+        const parseAgain = JSON.parse(parsedRepsonce);
+        const userData = parseAgain.userData;
+        setPhoneNumber(userData.phoneNumber);
+        setResidentStatus(userData.role);
+        setUnit(userData.unitNumber);
+        setForename(userData.foreName);
+        setProperty(userData.propertyId);
+        if (userData.foreName !== undefined) {
+          setSignedIn(true);
+        }
+        return parseAgain.message;
+      } else {
+        const body = JSON.parse(responce.data.body);
+        return body.message;
+      }
     } catch (error) {
-      console.log(error.message);
+      return error.message;
     }
   };
 

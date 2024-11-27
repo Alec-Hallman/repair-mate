@@ -2,14 +2,17 @@ import LoginField from "../Elements/LoginField";
 import "../../Styles/Input.css";
 import UserButton from "../Elements/Button";
 import SigninPage from "./SigninPage";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { appModel } from "../../Models/appModel";
 
 const SignIn = ({ changeDisplay }) => {
   const { setSignedIn, getUser } = useContext(appModel);
-  const click = (forward) => {
+  const [databaseMessage, setMessage] = useState("");
+  const click = async (forward) => {
     if (forward) {
-      getUser();
+      const message = await getUser();
+      //console.log(message);
+      setMessage(message);
     } else {
       changeDisplay(-1);
     }
@@ -18,6 +21,7 @@ const SignIn = ({ changeDisplay }) => {
   function sign_in() {
     return (
       <div>
+        <p className="error-text">{databaseMessage}</p>
         <LoginField></LoginField>
         <div className="bottom-container">
           <UserButton
