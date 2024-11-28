@@ -14,7 +14,7 @@
 }
 .s_headerText,
 .bs_headerText {
-  font-size: 25px;
+  font-size: min(5vw, 25px);
 }
 
 .bs_headerText,
@@ -40,6 +40,9 @@
 .normalText,
 .noBoldText {
   font-size: 120%;
+  text-wrap: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   user-select: none;
   color: white;
 }

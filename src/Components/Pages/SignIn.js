@@ -20,7 +20,7 @@ const SignIn = ({ changeDisplay }) => {
 
   function sign_in() {
     return (
-      <div>
+      <div style={{ marginTop: "50px", height: "100%" }}>
         <p className="error-text">{databaseMessage}</p>
         <LoginField></LoginField>
         <div className="bottom-container">
