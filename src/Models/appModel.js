@@ -24,7 +24,9 @@ const InfoManager = ({ children }) => {
   const [userClaims, setUserClaims] = useState({});
 
   useEffect(() => {
-    setHeaderText(["Hey", "...", " wait, who are you?"]);
+    if (signedIn === false) {
+      setHeaderText(["Hey", "...", " wait, who are you?"]);
+    }
   }, [signedIn]);
 
   const postAccount = async () => {
