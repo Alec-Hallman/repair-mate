@@ -41,7 +41,6 @@
 .noBoldText {
   font-size: 120%;
   text-wrap: nowrap;
-  overflow: hidden;
   text-overflow: ellipsis;
   user-select: none;
   color: white;
