@@ -27,10 +27,10 @@ const ResidentHome = () => {
   }, [signedIn]);
   const { resetCreateClaim } = useContext(claimModel);
   useEffect(() => {
-    if (residentPageState === PAGE_STATES.INITIAL) {
+    if (residentPageState === PAGE_STATES.INITIAL || residentPageState === -1) {
       setHeaderText(["Hello", userForename, ", welcome back!"]);
     }
-  }, [bText, w2Text, setHeaderText]);
+  }, [bText, w2Text, setHeaderText, residentPageState]);
   function showPage() {
     if (residentPageState === -1) {
       return (

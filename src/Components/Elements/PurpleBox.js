@@ -54,7 +54,10 @@ const PurpleBox = ({
       console.log("Showing Nothing");
       return (
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <p className="normalText">Claims you've made will appear here</p>
+          <p className="normalText">
+            Claims {resident === "resident" ? "you've made" : "residents make"}{" "}
+            will appear here
+          </p>
         </div>
       );
     }
