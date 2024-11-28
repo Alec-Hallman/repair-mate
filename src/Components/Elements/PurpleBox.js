@@ -73,23 +73,6 @@ const PurpleBox = ({
         ></HeaderText>
         <div className="PurpleBox">{displayClaim()}</div>
       </div>
-      <div className="bottom-container">
-        {resident !== "landlord" || selectedClaim.problem !== undefined ? (
-          <UserButton
-            green={false}
-            text={"Back"}
-            onClick={() => {
-              if (selectedClaim.problem === undefined) {
-                setResidentPage(-1);
-              } else {
-                setSelectedClaim({});
-              }
-            }}
-          ></UserButton>
-        ) : (
-          <></>
-        )}
-      </div>
       {changeStatus ? (
         <ChangeStatus
           claim={selectedClaim}
@@ -114,6 +97,23 @@ const PurpleBox = ({
       ) : (
         <></>
       )}
+      <div className="bottom-container">
+        {resident !== "landlord" || selectedClaim.problem !== undefined ? (
+          <UserButton
+            green={false}
+            text={"Back"}
+            onClick={() => {
+              if (selectedClaim.problem === undefined) {
+                setResidentPage(-1);
+              } else {
+                setSelectedClaim({});
+              }
+            }}
+          ></UserButton>
+        ) : (
+          <></>
+        )}
+      </div>
     </>
   );
 };

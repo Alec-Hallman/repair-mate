@@ -13,3 +13,12 @@
   font-weight: 500;
   font-size: 20px;
 }
+.CA-container {
+  height: max(62vh, 500px);
+  margin-bottom: max(10vh, 100px);
+  justify-content: center;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}

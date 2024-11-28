@@ -73,7 +73,7 @@ const CreateAccount = ({ changeDisplay }) => {
         ) : (
           <></>
         )}
-        <div>
+        <div className="CA-container">
           <p className="normalText">Please enter your full name</p>
           <InputField setInputValue={setForename}></InputField>
           <p className="normalText">
@@ -92,12 +92,11 @@ const CreateAccount = ({ changeDisplay }) => {
           {PhoneNumber()}
           <LoginField></LoginField>
         </div>
-        {/** Here will be the enter email/password */}
       </>
     );
   }
   return (
-    <div style={{ marginTop: "120px", height: "100%" }}>
+    <div style={{ marginTop: "10vh", height: "100%" }}>
       {ResorLord()}
       <div className="bottom-container">
         <>

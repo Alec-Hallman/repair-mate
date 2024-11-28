@@ -1,7 +1,7 @@
 .header-container {
   display: flex;
   justify-content: center;
-  height: 10vh;
+  height: max(10vh, 60px);
   width: 100vw;
 }
 body {
